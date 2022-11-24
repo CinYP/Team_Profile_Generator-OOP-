@@ -1,9 +1,63 @@
 import inquirer from 'inquirer';
-const fs = require('fs'); 
+
+inquirer
+.prompt([
+    {
+        type: 'input', 
+        message:'Please type your name.',
+        name: 'name',
+        validate: function(answer){
+            if(answer.lenght<1) {
+                return console.log('Please provide a valid name')
+            }
+        }
+     },
+     {
+        type: 'input', 
+        message:'Please provide Employee ID.',
+        name: 'id',
+        validate: function(answer){
+            if(answer.lenght<1) {
+                return console.log('Please provide a valid name')
+            }
+        }
+     },
+     {
+        type: 'input', 
+        message:'Please provide valid email.',
+        name: 'email',
+        validate: function(answer){
+            if(answer.lenght<1) {
+                return console.log('Please provide a valid name')
+            }
+        }
+     },
+     {
+        type: 'list', 
+        message:'What is your role?',
+        name: 'role',
+        choices: ['Intern', 'Manager', 'Engineer']
+     },
+     
+ ])
+ .then((answers) => {
+    
+   // Use user feedback for... whatever!!
+ })
+ .catch((error) => {
+   if (error.isTtyError) {
+     // Prompt couldn't be rendered in the current environment
+   } else {
+     // Something else went wrong
+   }
+ });
+
+//start function add here
+
 
 
 // function Manager(){
-//     Manager.prototype.
+ //  Manager.prototype.
 // }
 
 // // Function to write HTML file 
