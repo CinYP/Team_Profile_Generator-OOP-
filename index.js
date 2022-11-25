@@ -1,6 +1,6 @@
-import { getEventListeners } from 'events';
-import inquirer from 'inquirer';
-const fs = require('fs');
+//external modules 
+const inquirer = require('inquirer'); 
+//const fs = require('fs');
 
 const getRole = () => {
     return promises.resolve([
@@ -11,69 +11,68 @@ const getRole = () => {
             choices: ['Intern', 'Manager', 'Engineer', 'Employee']
             },
     ])
-}
+};
 
-const confirmRoleDetails = (role) => {
+const confirmRoleDetails = (role) => {}
     return {
         type: 'confirm',
         name: 'toUpdate',
-        message: `Would you like to update role${answers.role}?`,
-        validate: function(data){
-            if( answers.role == 'manager'){
-                //managerGetOffice(); 
+        message: `Would you like to update role?` //${data.role}?`,
+        // validate: function(data){
+        //     if( answers.role == 'manager'){
+        //         //managerGetOffice(); 
                 
-                // (data) => {
-                //     const newEmployee = employeeRecos.map(info, index)=>{
-                //         return {
-                //             key:Employee, 
-                //             name:`${data.name}`,
-                //             id: `${data.id}`,
-                //             email: `${data.email}`,
-                //             position:`${data.position}`,
-                //             Office #: `${data.officeNumber}
-                //         }}
-                // }} return {
-                //     type:'rawlist', 
-                //     name: `position.name`, 
-                // }; 
-            } else if (answer.role == 'Intern'){
-              // internGetSchool()
+        //         // (data) => {
+        //         //     const newEmployee = employeeRecos.map(info, index)=>{
+        //         //         return {
+        //         //             key:Employee, 
+        //         //             name:`${data.name}`,
+        //         //             id: `${data.id}`,
+        //         //             email: `${data.email}`,
+        //         //             position:`${data.position}`,
+        //         //             Office #: `${data.officeNumber}
+        //         //         }}
+        //         // }} return {
+        //         //     type:'rawlist', 
+        //         //     name: `position.name`, 
+        //         // }; 
+        //     } else if (answer.role == 'Intern'){
+        //       // internGetSchool()
              
-              console.log('intern'); 
-              // (data) => {
-                //     const newEmployee = employeeRecos.map(info, index)=>{
-                //         return {
-                //             key:Employee, 
-                //             name:`${data.name}`,
-                //             id: `${data.id}`,
-                //             email: `${data.email}`,
-                //             position:`${data.position}`,
-                //             School `${data.school}
-                //         }}
-                // }} return {
-                //     type:'rawlist', 
-                //     name: `position.name`, 
-                // }; 
-            } else if( answer.role == 'Engineer'){
-                //engineerGetGithub()
-                console.log('Engineer');
-                // (data) => {
-                //     const newEmployee = employeeRecos.map(info, index)=>{
-                //         return {
-                //             key:Employee, 
-                //             name:`${data.name}`,
-                //             id: `${data.id}`,
-                //             email: `${data.email}`,
-                //             position:`${data.position}`,
-                //             GitHub: `${data.username}
-                //         }}
-                // }} return {
-                //     type:'rawlist', 
-                //     name: `position.name`, 
-                // }; 
-            }
-            }
-        },
+        //       console.log('intern'); 
+        //       // (data) => {
+        //         //     const newEmployee = employeeRecos.map(info, index)=>{
+        //         //         return {
+        //         //             key:Employee, 
+        //         //             name:`${data.name}`,
+        //         //             id: `${data.id}`,
+        //         //             email: `${data.email}`,
+        //         //             position:`${data.position}`,
+        //         //             School `${data.school}
+        //         //         }}
+        //         // }} return {
+        //         //     type:'rawlist', 
+        //         //     name: `position.name`, 
+        //         // }; 
+        //     } else if( answer.role == 'Engineer'){
+        //         //engineerGetGithub()
+        //         console.log('Engineer');
+        //         // (data) => {
+        //         //     const newEmployee = employeeRecos.map(info, index)=>{
+        //         //         return {
+        //         //             key:Employee, 
+        //         //             name:`${data.name}`,
+        //         //             id: `${data.id}`,
+        //         //             email: `${data.email}`,
+        //         //             position:`${data.position}`,
+        //         //             GitHub: `${data.username}
+        //         //         }}
+        //         // }} return {
+        //         //     type:'rawlist', 
+        //         //     name: `position.name`, 
+        //         // }; 
+        //     }
+        // },
     }; 
 
 
@@ -94,8 +93,8 @@ const addMoreEmplyees = () => {
 
 
     async function main(){
-        const getEmployee = await inquirer.prompt ({
-            {
+        const getEmployee = await inquirer.prompt ([
+                {
                 type: 'input',
                 message: 'Please type your name.',
                 name: "Employee name",
@@ -122,12 +121,15 @@ const addMoreEmplyees = () => {
                          return console.log('Please provide a valid E-mail.')
                        }
                   }},
-        })
+                ])
+
             const getRoleEl = await inquire.prompt(getRole()); 
             const confirmingRoleDetailsEl =  await inquirer.prompt(confirmRoleDetails()); 
 
          if(role != "Employee"){
-            console.log("please wait while we build your employee page")
+            console.log("Please hold while we build your employee page");
+         } else if(role == 'Employee'){
+            console.log('Please hold while we generate your employee page');
          } else {
             console.log("oh no, something went wrong....")
             console.log(err); 
