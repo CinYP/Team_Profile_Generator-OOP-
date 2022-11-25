@@ -1,7 +1,6 @@
 const Manager = require("manager.js");
 const { describe, it } = require("node:test");
-const { hasUncaughtExceptionCaptureCallback } = require("process");
-//What is this ^^???
+
 
 describe("Manager", ()=>{
     describe("Initialization", ()=>{
