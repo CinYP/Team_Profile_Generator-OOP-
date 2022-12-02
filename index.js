@@ -1,6 +1,7 @@
 //external modules 
 const inquirer = require('inquirer'); 
 const fs = require('fs');
+const path = require('path');
 
 //internal modules 
 const generateHTML = require('./src/generateHTML');
@@ -14,27 +15,30 @@ const Intern = require('./lib/Intern');
 const teamsArray = [];
 
 const addManager = () => {
-    return inquirer.createPromptModule([
+    inquirer.prompt([
         {
             type: 'input',
             message: 'Please type the name of the manager on the team.',
             name: 'name',
-            default: 'Manager Name',
+            default: 'name',
             validate: (answer) => {
-             if(answer.length<1) {
-                  return console.log('Please provide a valid name')
-                }
-           }},
+             if(answer.length>0) {
+                  return true; 
+                } return 'Please provide a valid name'; 
+           }
+        },
            {
             type: 'input',
             message: 'Please enter the ID for the manager on the team.',
             name: 'id',
             default: '40973C',
             validate: (answer) => {
-             if(answer.length<1) {
-                  return console.log('Please provide a valid ID.')
-                }
-           }},
+                if(answer.length>0) {
+                     return true; 
+                   }
+                },
+
+            },
            {
             type: 'input',
             message: 'Please enter the email for the manager on the team.',
@@ -42,9 +46,9 @@ const addManager = () => {
             default:'manager@corporate.com',
             validate:  email => {
                 valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-             if(!valid) {
-                console.log('Please provide a valid email.')
-                } 
+             if(valid) {
+                return true; 
+                } return 'Please provide a valid email.'; 
            }},
            {
             type: 'input',
@@ -52,17 +56,19 @@ const addManager = () => {
             name: 'officeNumber',
             default: '001',
             validate: (answer) => {
-             if(answer.length<1) {
-                  return console.log('Please provide a valid office number.')
-                }
-           }},
+                if(answer.length>0) {
+                     return true; 
+                   } return 'Please return a valid office number.'
+                },
+            },
     ])
 .then(managerInput => {
     const {name,id, email, officeNumber} = managerInput; 
     const manager = new Manager (name, id, email, officeNumber)
 
     teamsArray.push(manager);
-    console.log(manager); 
+    console.log(manager);
+    addMoreEmployees();
 })};
 
 const addMoreEmployees = () =>{
@@ -83,55 +89,61 @@ return inquirer.prompt([
         type: 'input',
         message: 'Please enter the name of the employee.',
         name: 'name',
-        default: 'Employee Name',
+        default: 'name',
         validate: (answer) => {
-         if(answer.length<1) {
-              return console.log('Please provide a valid name.')
-            }
-       }},
+            if(answer.length>0) {
+                 return true; 
+               } return 'Please provide a valid name'; 
+          }
+       },
        {
         type: 'input',
         message: "Please enter the employee's ID.",
         name: 'id',
         default: '002',
         validate: (answer) => {
-         if(answer.length<1) {
-              return console.log('Please provide a valid office number.')
-            }
-       }},
+            if(answer.length>0) {
+                 return true; 
+               } return 'Please provide a valid id'; 
+          }
+       },
        {
         type: 'input',
-        message: 'Please enter the email for the manager on the team.',
+        message: 'Please enter the email for this employee on the team.',
         name: 'email',
         default:'employee@corporate.com',
         validate:  email => {
             valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-         if(!valid) {
-            console.log('Please provide a valid email.')
-            } 
+         if(valid) {
+            return true; 
+            } return 'Please provide a valid email.'; 
        }},
        {
+        when: (input) => input.role === "Engineer",
         type: 'input',
         message: "Please enter the engineer's github.",
         name: 'github',
         default:'CinYP',
-        when: (input) => input.role === "Engineer",
-        validate:  (answer) => {
-            if(answer.length<1) {
-                 return console.log('Please provide a valid github profile.')
-               }
-       }},
+        
+        validate: (answer) => {
+            if(answer.length>0) {
+                 return true; 
+               } return 'Please provide a valid github profile.'; 
+          }
+       },
        {
+         when: (input) => input.role === "Intern",
         type: 'input',
         message: 'Please enter the school your intern attends',
         name: 'school',
-        default:'CinYP',
-        when: (input) => input.role === "Intern",
-        validate:  (answer) => {
-            if(answer.length<1) {
-                 return console.log("Please enter the inter's school")
-               }
-       }},
+        default:'Georgia Tech',
+       
+        validate: (answer) => {
+            if(answer.length>0) {
+                 return true; 
+               } return 'Please provide a valid github profile.'; 
+          }
+       },
        {
         type:'confirm',
         name: 'confirmaddMoreEmployees',
@@ -157,14 +169,18 @@ return inquirer.prompt([
         if(confirmaddMoreEmployees){
             return addMoreEmployees(teamsArray);
         }else {
-            return teamsArray; 
+            console.log(teamsArray);
+            writeFile(teamsArray);  
         }
+    })
+    .catch( (err)=>{
+        console.log(err);
     })
 };
 
-//function to generate the html file
+// function to generate the html file
 const writeFile = data => {
-    fs.writeFile('./src/index.html', data, err => {
+    fs.writeFile('index.html', generateHTML(data), err => {
         if (err){
             //if there's an error, this will show the error 
             console.log(err);
@@ -180,17 +196,11 @@ const writeFile = data => {
     })
 };
 
+//callong function to create employees
 addManager()
-.then(addEmployee)
-.then(teamArray => {
-    return generateHTML(teamArray)
-})
-.then(pageHTML =>{
-    return writeFile(pageHTML);
-})
-.catch(err => {
-    console.log(err); 
-}); 
+// .catch(err => {
+//     console.log(err); 
+// }); 
 
 
 /*
