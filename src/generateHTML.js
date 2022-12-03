@@ -8,36 +8,69 @@ function generateHTML(teamsArray) {
     console.log(managers); 
 
     const managerMap = managers.map((manager)=> `
-    <div>
-    <h2> ${manager.getName()}</h2>
-    <h3>  ${manager.getRole()} </h3>
-    <h4>  ${manager.getId()} </h4>
-    <h4> <a href="${manager.getEmail()}"> ${manager.getEmail()}</a></h4>
-    <h4>  ${manager.officeNumber} </h4>
+    <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">${manager.getName()}</h5>
+      <p class="card-text">${manager.getRole()}</p>
     </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">${manager.getId()}</li>
+      <li class="list-group-item"><a href="${manager.getEmail()}"> ${manager.getEmail()}</a></h4></li>
+      <li class="list-group-item">Office #: ${manager.officeNumber}</li>
+    </ul>
+  </div>
     `).join(''); 
-
+        
    const engineerMap =  engineers.map((engineer)=> `
-    <div>
-    <h2> ${engineer.getName()}</h2>
-    <h3>  ${engineer.getRole()} </h3>
-    <h4>  ${engineer.getId()} </h4>
-    <h4> <a href="${engineer.getEmail()}"> ${engineer.getEmail()}</a> </h4>
-    https://github.com/CinYP
-   <h4> <a href=" https://github.com${engineer.getGitHub()}"> ${engineer.getGitHub()}</a></h4>
-
+   <div class="card" style="width: 18rem;">
+   <div class="card-body">
+     <h5 class="card-title">${engineer.getName()}</h5>
+     <p class="card-text">${engineer.getRole()}</p>
+   </div>
+   <ul class="list-group list-group-flush">
+     <li class="list-group-item">${engineer.getId()}</li>
+     <li class="list-group-item"><a href="${engineer.getEmail()}"> ${engineer.getEmail()}</a></h4></li>
+     <li class="list-group-item"><a href=" https://github.com${engineer.getGitHub()}"> Github:${engineer.getGitHub()}</li>
+   </ul>
  </div>
-    `).join(''); 
+   `).join(''); 
 
-    const internMap = interns.map((intern)=> `
-    <div>
-    <h2> ${intern.getName()}</h2>
-    <h3>  ${intern.getRole()} </h3>
-    <h4>  ${intern.getId()} </h4>
-    <h4> <a href="${intern.getEmail()}"> ${intern.getEmail()}</a></h4>
-    <h4>  ${intern.getSchool()} </h4>
- </div>
-    `).join(''); 
+
+//    const engineerMap =  engineers.map((engineer)=> `
+//     <div>
+//     <h2> ${engineer.getName()}</h2>
+//     <h3>  ${engineer.getRole()} </h3>
+//     <h4>  ${engineer.getId()} </h4>
+//     <h4> <a href="${engineer.getEmail()}"> ${engineer.getEmail()}</a> </h4>
+//     https://github.com/CinYP
+//    <h4> <a href=" https://github.com${engineer.getGitHub()}"> ${engineer.getGitHub()}</a></h4>
+
+//  </div>
+//     `).join(''); 
+
+const internMap = interns.map((intern)=> `
+<div class="card" style="width: 18rem;">
+<div class="card-body">
+  <h5 class="card-title">${intern.getName()}</h5>
+  <p class="card-text">${intern.getRole()}</p>
+</div>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">${intern.getId()}</li>
+  <li class="list-group-item"><a href="${intern.getEmail()}"> ${intern.getEmail()}</a></h4></li>
+  <li class="list-group-item">School: ${intern.getSchool()} </li>
+</ul>
+</div>
+`).join(''); 
+
+//     const internMap = interns.map((intern)=> `
+//     <div>
+//     <h2> ${intern.getName()}</h2>
+//     <h3>  ${intern.getRole()} </h3>
+//     <h4>  ${intern.getId()} </h4>
+//     <h4> <a href="${intern.getEmail()}"> ${intern.getEmail()}</a></h4>
+//     <h4>  ${intern.getSchool()} </h4>
+//  </div>
+//     `).join(''); 
 
    const teamArray = []; 
     
@@ -52,12 +85,16 @@ return `
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!--Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Adding CSS Stylesheet-->
     <link rel="stylesheet" href="./style.css">
     <title>Team Profile Builder</title>
 </head>
 <body>
+ <main class="cardholder">
  ${teamArray.join('')}
+</main>
     
 </body>
 </html>

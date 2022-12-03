@@ -1,0 +1,17 @@
+.cardholder{
+ display:flex;
+ justify-content: space-evenly;
+};
+
+.card {
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+max-width: 300px;
+margin: auto;
+padding: 4px;
+text-align: center;
+border: 1px black;
+};
+
+.card-body {
+    background-color: rgb(171, 171, 182);
+}; 
