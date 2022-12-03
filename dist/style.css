@@ -4,9 +4,9 @@
 };
 
 .card {
-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+box-shadow: 0 4px 8px black;
 max-width: 300px;
-margin: auto;
+margin: 5px;
 padding: 4px;
 text-align: center;
 border: 1px black;
@@ -14,4 +14,11 @@ border: 1px black;
 
 .card-body {
     background-color: rgb(171, 171, 182);
-}; 
+};
+ 
+.navbar {
+ align-items: center;
+ padding: 2px;
+ margin:1px;
+ background-color: rgb(248, 236, 220); 
+};

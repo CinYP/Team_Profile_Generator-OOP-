@@ -9,29 +9,29 @@ function generateHTML(teamsArray) {
 
     const managerMap = managers.map((manager)=> `
     <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">${manager.getName()}</h5>
-      <p class="card-text">${manager.getRole()}</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${manager.getId()}</li>
-      <li class="list-group-item"><a href="${manager.getEmail()}"> ${manager.getEmail()}</a></h4></li>
-      <li class="list-group-item">Office #: ${manager.officeNumber}</li>
-    </ul>
+        <div class="card-body">
+            <h5 class="card-title">${manager.getName()}</h5>
+            <p class="card-text">${manager.getRole()}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${manager.getId()}</li>
+            <li class="list-group-item"><a href="${manager.getEmail()}"> ${manager.getEmail()}</a></h4></li>
+            <li class="list-group-item">Office #: ${manager.officeNumber}</li>
+        </ul>
   </div>
     `).join(''); 
         
    const engineerMap =  engineers.map((engineer)=> `
    <div class="card" style="width: 18rem;">
-   <div class="card-body">
-     <h5 class="card-title">${engineer.getName()}</h5>
-     <p class="card-text">${engineer.getRole()}</p>
-   </div>
-   <ul class="list-group list-group-flush">
-     <li class="list-group-item">${engineer.getId()}</li>
-     <li class="list-group-item"><a href="${engineer.getEmail()}"> ${engineer.getEmail()}</a></h4></li>
-     <li class="list-group-item"><a href=" https://github.com${engineer.getGitHub()}"> Github:${engineer.getGitHub()}</li>
-   </ul>
+        <div class="card-body">
+            <h5 class="card-title">${engineer.getName()}</h5>
+            <p class="card-text">${engineer.getRole()}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${engineer.getId()}</li>
+            <li class="list-group-item"><a href="${engineer.getEmail()}"> ${engineer.getEmail()}</a></h4></li>
+            <li class="list-group-item"><a href=" https://github.com${engineer.getGitHub()}"> Github:${engineer.getGitHub()}</li>
+        </ul>
  </div>
    `).join(''); 
 
@@ -50,15 +50,15 @@ function generateHTML(teamsArray) {
 
 const internMap = interns.map((intern)=> `
 <div class="card" style="width: 18rem;">
-<div class="card-body">
-  <h5 class="card-title">${intern.getName()}</h5>
-  <p class="card-text">${intern.getRole()}</p>
-</div>
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">${intern.getId()}</li>
-  <li class="list-group-item"><a href="${intern.getEmail()}"> ${intern.getEmail()}</a></h4></li>
-  <li class="list-group-item">School: ${intern.getSchool()} </li>
-</ul>
+    <div class="card-body">
+        <h5 class="card-title">${intern.getName()}</h5>
+        <p class="card-text">${intern.getRole()}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">${intern.getId()}</li>
+        <li class="list-group-item"><a href="${intern.getEmail()}"> ${intern.getEmail()}</a></h4></li>
+        <li class="list-group-item">School: ${intern.getSchool()} </li>
+    </ul>
 </div>
 `).join(''); 
 
@@ -88,8 +88,11 @@ return `
     <!--Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--Adding CSS Stylesheet-->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./dist/style.css">
     <title>Team Profile Builder</title>
+    <nav class="navbar navbar-light bg-light text-center">
+    <span class="navbar-brand mb-0 h1 text-center"> Team Profile </span>
+  </nav>
 </head>
 <body>
  <main class="cardholder">
