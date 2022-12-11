@@ -1,6 +1,3 @@
-// const generateManager = function (manager) {
-// generateHTML(teamsArray);  
-
 function generateHTML(teamsArray) {
     const managers = teamsArray.filter((employee)=> employee.getRole()=== 'Manager')
     const engineers = teamsArray.filter((employee)=> employee.getRole()=== 'Engineer')
@@ -36,18 +33,6 @@ function generateHTML(teamsArray) {
    `).join(''); 
 
 
-//    const engineerMap =  engineers.map((engineer)=> `
-//     <div>
-//     <h2> ${engineer.getName()}</h2>
-//     <h3>  ${engineer.getRole()} </h3>
-//     <h4>  ${engineer.getId()} </h4>
-//     <h4> <a href="${engineer.getEmail()}"> ${engineer.getEmail()}</a> </h4>
-//     https://github.com/CinYP
-//    <h4> <a href=" https://github.com${engineer.getGitHub()}"> ${engineer.getGitHub()}</a></h4>
-
-//  </div>
-//     `).join(''); 
-
 const internMap = interns.map((intern)=> `
 <div class="card" style="width: 18rem;">
     <div class="card-body">
@@ -61,16 +46,6 @@ const internMap = interns.map((intern)=> `
     </ul>
 </div>
 `).join(''); 
-
-//     const internMap = interns.map((intern)=> `
-//     <div>
-//     <h2> ${intern.getName()}</h2>
-//     <h3>  ${intern.getRole()} </h3>
-//     <h4>  ${intern.getId()} </h4>
-//     <h4> <a href="${intern.getEmail()}"> ${intern.getEmail()}</a></h4>
-//     <h4>  ${intern.getSchool()} </h4>
-//  </div>
-//     `).join(''); 
 
    const teamArray = []; 
     
@@ -105,9 +80,3 @@ return `
 };
 
 module.exports = generateHTML;
-
-// }
-
-//use template literals 
-//1. html - one hook 
-//create for-loop for the tables 
