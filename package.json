@@ -1,6 +1,29 @@
 {
-    "dependencies": {
-      "inquirer": "^8.2.4"
-    }
-  }
-  
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  },
+  "name": "team_profile_generator-oop-",
+  "description": "# Description This application was created to generate a team profile based on user input using the Inquirer module from Node.js and displaying given information on a dynamically generated HTML page.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {
+    "jest": "^29.3.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CinYP/Team_Profile_Generator-OOP-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CinYP/Team_Profile_Generator-OOP-/issues"
+  },
+  "homepage": "https://github.com/CinYP/Team_Profile_Generator-OOP-#readme"
+}

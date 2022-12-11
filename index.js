@@ -20,7 +20,7 @@ const addManager = () => {
             type: 'input',
             message: 'Please type the name of the manager on the team.',
             name: 'name',
-            default: 'name',
+            default: 'Cinthia',
             validate: (answer) => {
              if(answer.length>0) {
                   return true; 
@@ -31,7 +31,7 @@ const addManager = () => {
             type: 'input',
             message: 'Please enter the ID for the manager on the team.',
             name: 'id',
-            default: '40973C',
+            default: '00125',
             validate: (answer) => {
                 if(answer.length>0) {
                      return true; 
@@ -43,7 +43,7 @@ const addManager = () => {
             type: 'input',
             message: 'Please enter the email for the manager on the team.',
             name: 'email',
-            default:'manager@corporate.com',
+            default:'cinthiapruitt@gmail.com',
             validate:  email => {
                 valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
              if(valid) {
@@ -54,7 +54,7 @@ const addManager = () => {
             type: 'input',
             message: 'Please enter the ID for the manager on the team.',
             name: 'officeNumber',
-            default: '001',
+            default: '004',
             validate: (answer) => {
                 if(answer.length>0) {
                      return true; 
@@ -89,7 +89,7 @@ return inquirer.prompt([
         type: 'input',
         message: 'Please enter the name of the employee.',
         name: 'name',
-        default: 'name',
+        default: 'Cinthia',
         validate: (answer) => {
             if(answer.length>0) {
                  return true; 
@@ -100,7 +100,7 @@ return inquirer.prompt([
         type: 'input',
         message: "Please enter the employee's ID.",
         name: 'id',
-        default: '002',
+        default: '00225',
         validate: (answer) => {
             if(answer.length>0) {
                  return true; 
@@ -111,7 +111,7 @@ return inquirer.prompt([
         type: 'input',
         message: 'Please enter the email for this employee on the team.',
         name: 'email',
-        default:'employee@corporate.com',
+        default:'cinthiapruitt@gmail.com',
         validate:  email => {
             valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
          if(valid) {
