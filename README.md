@@ -9,7 +9,7 @@ The user should close the repository from GitHub, download Node.js, then type "n
 # Usage
 Use Inquirer from your command line to answer questions about your team to later create an HTML page. 
 
-<insert screencast here>
+Screencast Video Link: https://drive.google.com/file/d/111-2jghX3GR1OKH3sYcOA_JYd46LhG3u/view 
 
 # Tests
 
